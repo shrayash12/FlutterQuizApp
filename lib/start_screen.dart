@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 
 class StartScreen extends StatelessWidget {
-  const StartScreen({super.key});
+  const StartScreen(this.startQuiz, {super.key});
+
+  final void Function() startQuiz;
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +33,7 @@ class StartScreen extends StatelessWidget {
         ),
         SizedBox(height: 10),
         OutlinedButton.icon(
-          onPressed: () {},
+          onPressed: startQuiz,
           icon: Icon(Icons.arrow_right_alt),
           label: Text('Start Quiz'),
           style: OutlinedButton.styleFrom(
@@ -43,27 +45,3 @@ class StartScreen extends StatelessWidget {
     );
   }
 }
-
-/* @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: Container(
-          width: double.infinity, // full screen width
-          height: double.infinity,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(colors: [color1, color2]),
-          ),
-          child: Center(
-            child: Lottie.asset(
-              'assets/animations/flutter_json/flutter_logo.json',
-              width: 200,
-              height: 200,
-              fit: BoxFit.contain,
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}*/
